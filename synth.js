@@ -9,7 +9,8 @@
     var numberOfKeys = 26;
     var allKeyElements;
 
-    window.addEventListener('keydown', keyPlay);
+    window.addEventListener('keydown', pressKey);
+    window.addEventListener('keyup', unpressKey);
 
     function buildKeyboard(){
         keys = document.createElement('div');
@@ -60,15 +61,24 @@
 
 
 
-    function keyPlay(e){
+    function pressKey(e){
         e.preventDefault();
             for(var i = 0; i < allKeyElements.length; i++){
                 if(e.keyCode == allKeyElements[i].dataset.key){
                 allKeyElements[i].classList.add('pressed');
-
             }
         }
     }
+
+    function unpressKey(e){
+        e.preventDefault();
+            for(var i = 0; i < allKeyElements.length; i++){
+                if(e.keyCode == allKeyElements[i].dataset.key){
+                allKeyElements[i].classList.remove('pressed');
+            }
+        }
+    }
+
 
 
 

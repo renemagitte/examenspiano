@@ -1,9 +1,19 @@
-(function() {
+// (function() {
  
     /* Keycodes in order of appearance in piano. Starting with note C = letter A/keycode 65.  */
-    var keyCodes = [ 65, 87, 83, 69, 68, 70, 84, 71, 89, 72, 85, 74, 75, 79, 76, 80, 186, 59, 222, 221, 13 ]
+    var keyCodes = [ 65, 87, 83, 69, 68, 70, 84, 71, 89, 72, 85, 74, 75, 79, 76, 80, 186, 222, 221, 13, 188, 93, 190, 18, 189, 16 ]
 
-    var piano = document.getElementById("piano");
+    // var _stopButton = document.querySelector('.stopButton');
+    // _stopButton.addEventListener('click', noteCanvas.stop);
+  
+    // var _playPauseButton = document.querySelector('.playPauseButton');
+    // _playPauseButton.addEventListener('click', noteCanvas.setPlayPause);
+    
+    
+    
+    
+    
+    var piano = document.getElementById('piano');
 
     var keys;
     var numberOfKeys = 26;
@@ -19,8 +29,8 @@
 
         for(var i = 0; i < numberOfKeys; i++){
             var key;
-            var additionalClass = blackKeyClass(i);
-            key = `<div class="key ${additionalClass}" data-key="${keyCodes[i]}"></div>`;
+            var keyClass = getKeyClass(keyCodes[i])
+            key = `<div class="key ${keyClass}" data-key="${keyCodes[i]}"></div>`;
 
             keys.insertAdjacentHTML('beforeend', key);
 
@@ -39,19 +49,19 @@
     //     console.log(allKeys);
     // }
 
-    function blackKeyClass(index){
-        switch (index) {
-            case 1:
-            case 3:
-            case 6:
-            case 8:
-            case 10:
-            case 13:
-            case 15:
-            case 18:
-            case 20:
-            case 22:
-            case 25:
+    function getKeyClass(code){
+        switch (code) {
+            case 87:
+            case 69:
+            case 84:
+            case 89:
+            case 85:
+            case 79:
+            case 80:
+            case 221:
+            case 188:
+            case 190:
+            case 16:
                 return 'black';
                 break; 
             default: 
@@ -63,6 +73,11 @@
 
     function pressKey(e){
         e.preventDefault();
+
+        drawNote(e.keyCode);
+
+
+
             for(var i = 0; i < allKeyElements.length; i++){
                 if(e.keyCode == allKeyElements[i].dataset.key){
                 allKeyElements[i].classList.add('pressed');
@@ -88,4 +103,4 @@
 
 
 
-})();
+// })();

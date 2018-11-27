@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,22 @@
         <link rel="stylesheet" type="text/css" href="css/piano.css" />
     </head>
     <body>
-        <div id="piano"></div>
+        <div class="container">
+                <button class="playPauseButton">Play</button>
+                <button class="stopButton">Stop</button>
+            <div class="noteCanvas-container">
+
+                <canvas width="860" height="400" style="z-index: 1;" id="noteCanvas1" class="canvas" ref="canvas"></canvas>
+                <canvas width="860" height="400" style="z-index: 2;" id="noteCanvas2" class="canvas" ref="canvas"></canvas>  
+
+            </div>
+           
+            
+            <div id="piano"></div>
+        </div>
 
 
-
+        <script src="noteCanvas.js"></script>
         <script src="synth.js"></script>
 
 
@@ -18,3 +31,5 @@
 
     </body>
 </html>
+
+

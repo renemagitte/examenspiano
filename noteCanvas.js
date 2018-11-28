@@ -6,7 +6,10 @@
   var noteLayer = 0;
 
   var noteNames = [];
+  var notes = [];
 
+  var hej;
+  var hejObj;
 
   var myVar;
 
@@ -107,31 +110,44 @@
 
     function drawNote(code){
 
-      // noteLayer++
-      // var newNote = 'note' + noteLayer;
-
 
       // Works one note:
       // var newNote;
       // newNote2Y = getY(code);
       // var canvas2 = document.getElementById('noteCanvas2');
       // newNote = canvas2.getContext('2d');
+      // console.log(newNote);
       // newNote.fillStyle = "black";
       // newNote.fillRect(playheadAt, newNote2Y, 5, 10);
 
-    
+      var newNote;
       newNote2Y = getY(code);
-      noteLayer++
-      let note = 'note' + noteLayer;
-      noteNames.push(note);
       var canvas2 = document.getElementById('noteCanvas2');
+     
+      newNoteElem = canvas2.getContext('2d');
+      noteObj = new DrawNote(newNoteElem, playheadAt, newNote2Y);
 
-      console.log(noteNames);
-      console.log(noteLayer);
-      console.log(noteNames[0]);
-      noteNames[noteLayer] = canvas2.getContext('2d');
-      noteNames[noteLayer].fillStyle = "black";
-      noteNames[noteLayer].fillRect(playheadAt, newNote2Y, 5, 10);
+      console.log(playheadAt, newNote2Y);
+
+      noteObj.draw(newNoteElem, playheadAt, newNote2Y);
+
+    
+
+
+
+      // newNote2Y = getY(code);
+      // noteLayer++
+      // let note = 'note' + noteLayer;
+      // noteNames.push(note);
+      // var canvas2 = document.getElementById('noteCanvas2');
+
+      // console.log(noteNames[noteLayer]);
+      // noteNames[noteLayer] = canvas2.getContext('2d');
+      // noteNames[noteLayer].fillStyle = "black";
+      // noteNames[noteLayer].fillRect(playheadAt, newNote2Y, 5, 10);
+
+      // noteNames[noteLayer] = newNote();
+      // noteNames[noteLayer].draw()
 
 
 

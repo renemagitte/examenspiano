@@ -1,36 +1,30 @@
-function DrawNote(layer, x, y){
+function DrawNote(elem, x, y){
 
   var _instance = this;
-  var _canvas;
-  var _thisNote;
+  var _note;
 
-  var _noteY = y;
-  var _noteX = x;
+  var _y;
+  var _x;
 	
 	function init() {
-    _canvas = document.getElementById('noteCanvas2');
-    _thisNote = 'note' + layer;
-    _thisNote = _canvas.getContext('2d');
-
+    _y = y;
+    _x = x;
+    _note = elem;
+    console.log(_x);
+    console.log(_y);
 
   
   }
 
   this.draw = function() {
 
-    _canvas = document.getElementById('noteCanvas2');
-    _thisNote = 'note' + layer;
-    _thisNote = _canvas.getContext('2d');
+    console.log(_note);
 
 
-    _thisNote.fillStyle = "black";
-    _thisNote.fillRect(_noteX, _noteY, 5, 10);
-
-    console.log("hej");
-
-    return _thisNote;
-
-
+    
+    _note.fillStyle = "black";
+    _note.fillRect(_x, _y, 5, 10);
+    
   }
 
 
